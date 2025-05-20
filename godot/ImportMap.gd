@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@export_tool_button("Import") var btn: Callable = import_level
+@export_tool_button("Import") var btn: Callable = import_map
 
 func replace_node(template: Node, new_node: Node, new_name: String) -> void:
 	await get_tree().process_frame
@@ -36,7 +36,7 @@ func handle_node(node: Node) -> void:
 	for child in node.get_children():
 		handle_node(child)
 
-func import_level() -> void:
+func import_map() -> void:
 	print("Importing level")
 	for child in get_children():
 		handle_node(child)
